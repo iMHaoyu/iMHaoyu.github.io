@@ -3,14 +3,14 @@
   <title>Hexo</title>
   
   
-  <link href="/iMHaoyu.github.io/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://xuhaoyucn.com/iMHaoyu.github.io/"/>
-  <updated>2018-09-29T00:01:38.006Z</updated>
-  <id>https://xuhaoyucn.com/iMHaoyu.github.io/</id>
+  <link href="https://xuhaoyucn.com/"/>
+  <updated>2018-09-29T03:31:43.132Z</updated>
+  <id>https://xuhaoyucn.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>xuhaoyu</name>
     
   </author>
   
@@ -18,22 +18,46 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://xuhaoyucn.com/iMHaoyu.github.io/2018/09/29/hello-world/"/>
-    <id>https://xuhaoyucn.com/iMHaoyu.github.io/2018/09/29/hello-world/</id>
+    <link href="https://xuhaoyucn.com/2018/09/29/hello-world/"/>
+    <id>https://xuhaoyucn.com/2018/09/29/hello-world/</id>
     <published>2018-09-29T00:01:38.006Z</published>
-    <updated>2018-09-29T00:01:38.006Z</updated>
+    <updated>2018-09-29T03:31:43.132Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MacDown 的简单使用</title>
+    <link href="https://xuhaoyucn.com/2018/09/25/2018-09-25-xuhaoyu-first-post/"/>
+    <id>https://xuhaoyucn.com/2018/09/25/2018-09-25-xuhaoyu-first-post/</id>
+    <published>2018-09-25T00:11:31.000Z</published>
+    <updated>2018-09-29T03:53:34.962Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>标题使用“#”标识，“#”越多标题级别越小，最多为6个“#”。建议在“#”后面加个空格，这是标准的写法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># H1 </span><br><span class="line">## H2 </span><br><span class="line">### H3 </span><br><span class="line">#### H4 </span><br><span class="line">##### H5 </span><br><span class="line">###### H6</span><br></pre></td></tr></table></figure><h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><!--more--!>左右包围是斜体  如：*斜体* --> 斜体<br><br>左右包围是粗体 如：<strong>粗体</strong> –&gt; 粗体<br><br>## 引用<br><br>在文字前面加个”&gt;”<br><br> 如：<br> &gt;这里是引用<br><br>## 超链接／图片<br><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接为[]()&quot;格式</span><br></pre></td></tr></table></figure><p> 如: <a href="www.baidu.com">百度</a></p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片只是比超链接前面多加了个!``![]()</span><br></pre></td></tr></table></figure><p> 如：</p><p> <img src="http://upload-images.jianshu.io/upload_images/2059483-f6dee2f90f7c0e76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p><h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>前后各使用三个” ` “将其框起来。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nslog(@&quot;代码框&quot;);</span><br></pre></td></tr></table></figure><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>“ * ”或“ - ”在前为无序列表</p><ul><li>Windows</li></ul><ul><li><p>Mac</p></li><li><p>Linux</p></li></ul><p>“ 1. ” “ 2. ”在前为有序列表</p><p>1.第一章</p><p>2.第二章</p><p>3.第三章</p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>用macdown制作表格不是那么方便</p><table><thead><tr><th style="text-align:left">姓名</th><th style="text-align:center">年龄</th><th style="text-align:right">性别</th></tr></thead><tbody><tr><td style="text-align:left">章三</td><td style="text-align:center">23</td><td style="text-align:right">男</td></tr><tr><td style="text-align:left">李四</td><td style="text-align:center">22</td><td style="text-align:right">女</td></tr><tr><td style="text-align:left">王二麻</td><td style="text-align:center">24</td><td style="text-align:right">男</td></tr></tbody></table><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p> <del>删除我吧</del></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;标题使用“#”标识，“#”越多标题级别越小，最多为6个“#”。建议在“#”后面加个空格，这是标准的写法。&lt;/p&gt;
+&lt;figure class
       
     
     </summary>
     
+      <category term="MarkDown" scheme="https://xuhaoyucn.com/categories/MarkDown/"/>
+    
+    
+      <category term="MarkDown简单语法" scheme="https://xuhaoyucn.com/tags/MarkDown%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
