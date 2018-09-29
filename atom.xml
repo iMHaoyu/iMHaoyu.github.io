@@ -6,7 +6,7 @@
   <link href="/iMHaoyu.github.io/atom.xml" rel="self"/>
   
   <link href="https://xuhaoyucn.com/"/>
-  <updated>2018-09-29T06:46:26.080Z</updated>
+  <updated>2018-09-29T06:55:48.914Z</updated>
   <id>https://xuhaoyucn.com/</id>
   
   <author>
@@ -21,17 +21,14 @@
     <link href="https://xuhaoyucn.com/2018/09/29/%E5%BC%80%E7%AF%87%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
     <id>https://xuhaoyucn.com/2018/09/29/开篇第一篇/</id>
     <published>2018-09-29T06:02:31.000Z</published>
-    <updated>2018-09-29T06:46:26.080Z</updated>
+    <updated>2018-09-29T06:55:48.914Z</updated>
     
-    <content type="html"><![CDATA[<p>在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。</p><p>然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress 多很多也很好看于是上网找了Hexo博客的搭建方法。 于是我的第一个个人博客就这样出现了，当然期间也花费了很多时间和精力，每天提前三个多小时到公司连续弄了三四天。还好，结果还是让人很满意的！</p><blockquote><p>ps：本人是在公司工作不是那么忙的时候弄的，如果你们公司的事情很多，我建议各位还是有空的时候在弄吧。毕竟有些东西还是要深入的了解一下的。</p></blockquote><p>在写这篇博客的时候有想过把我学习搭建博客的方法分享给大家，但是发现关于 Hexo+Github 搭建博客的方法有很多，所以我也就没有写下来。<br>不过我还是把我参考的方法链接分享给大家吧：</p><blockquote><p>搭建方法：</p><ul><li><a href="https://blog.csdn.net/qq_34290780/article/details/78230706" target="_blank" rel="noopener">https://blog.csdn.net/qq_34290780/article/details/78230706</a></li></ul><p>我用的主题是： - “pure”</p><ul><li><a href="https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md" target="_blank" rel="noopener">https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md</a></li></ul><p>可以根据以上的方法搭建自己的博客主题</p></blockquote><p>现在写个博客感觉好像又回到了高中写作文的时候，本来就偏科文采不是很好，所有就先写到这吧…</p><p>对了，我以后会把我的学习成果和总计、学到的新的技术、封装的框架或控件的思路都写在博客里面，会不定时的更新出来，希望有什么不足的可以指出来，有什么需要指点的也可以联系我，我会尽力帮助你。欢迎各位不吝赐教，共同学习，一起成长！</p>]]></content>
+    <content type="html"><![CDATA[<p>在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。</p><p>然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress 多很多也很好看于是上网找了Hexo博客的搭建方法。 于是我的第一个个人博客就这样出现了，当然期间也花费了很多时间和精力，每天提前三个多小时到公司连续弄了三四天。还好，结果还是让人很满意的！</p><a id="more"></a><blockquote><p>ps：本人是在公司工作不是那么忙的时候弄的，如果你们公司的事情很多，我建议各位还是有空的时候在弄吧。毕竟有些东西还是要深入的了解一下的。</p></blockquote><p>在写这篇博客的时候有想过把我学习搭建博客的方法分享给大家，但是发现关于 Hexo+Github 搭建博客的方法有很多，所以我也就没有写下来。<br>不过我还是把我参考的方法链接分享给大家吧：</p><blockquote><p>搭建方法：</p><ul><li><a href="https://blog.csdn.net/qq_34290780/article/details/78230706" target="_blank" rel="noopener">https://blog.csdn.net/qq_34290780/article/details/78230706</a></li></ul><p>我用的主题是： - “pure”</p><ul><li><a href="https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md" target="_blank" rel="noopener">https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md</a></li></ul><p>可以根据以上的方法搭建自己的博客主题</p></blockquote><p>现在写个博客感觉好像又回到了高中写作文的时候，本来就偏科文采不是很好，所有就先写到这吧…</p><p>对了，我以后会把我的学习成果和总计、学到的新的技术、封装的框架或控件的思路都写在博客里面，会不定时的更新出来，希望有什么不足的可以指出来，有什么需要指点的也可以联系我，我会尽力帮助你。欢迎各位不吝赐教，共同学习，一起成长！</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。&lt;/p&gt;
-&lt;p&gt;然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress
-      
+      &lt;p&gt;在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。&lt;/p&gt;
+&lt;p&gt;然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress 多很多也很好看于是上网找了Hexo博客的搭建方法。 于是我的第一个个人博客就这样出现了，当然期间也花费了很多时间和精力，每天提前三个多小时到公司连续弄了三四天。还好，结果还是让人很满意的！&lt;/p&gt;
     
     </summary>
     
