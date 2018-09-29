@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/iMHaoyu.github.io/atom.xml" rel="self"/>
   
-  <link href="https://xuhaoyucn.com/"/>
+  <link href="https://xuhaoyucn.com/iMHaoyu.github.io/"/>
   <updated>2018-09-29T00:01:38.006Z</updated>
-  <id>https://xuhaoyucn.com/</id>
+  <id>https://xuhaoyucn.com/iMHaoyu.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://xuhaoyucn.com/2018/09/29/hello-world/"/>
-    <id>https://xuhaoyucn.com/2018/09/29/hello-world/</id>
+    <link href="https://xuhaoyucn.com/iMHaoyu.github.io/2018/09/29/hello-world/"/>
+    <id>https://xuhaoyucn.com/iMHaoyu.github.io/2018/09/29/hello-world/</id>
     <published>2018-09-29T00:01:38.006Z</published>
     <updated>2018-09-29T00:01:38.006Z</updated>
     
