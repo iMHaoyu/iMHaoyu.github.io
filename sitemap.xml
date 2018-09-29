@@ -2,16 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xuhaoyucn.com/2018/09/25/2018-09-25-xuhaoyu-first-post/</loc>
+    <loc>https://xuhaoyucn.com/2018/09/29/%E5%BC%80%E7%AF%87%E7%AC%AC%E4%B8%80%E7%AF%87/</loc>
     
-    <lastmod>2018-09-29T03:53:34.962Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xuhaoyucn.com/2018/09/29/hello-world/</loc>
-    
-    <lastmod>2018-09-29T03:31:43.132Z</lastmod>
+    <lastmod>2018-09-29T06:46:26.080Z</lastmod>
     
   </url>
   
@@ -23,13 +16,6 @@
   </url>
   
   <url>
-    <loc>https://xuhaoyucn.com/categories/index.html</loc>
-    
-    <lastmod>2018-09-29T01:36:27.477Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xuhaoyucn.com/books/index.html</loc>
     
     <lastmod>2018-09-29T01:36:27.477Z</lastmod>
@@ -37,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://xuhaoyucn.com/repository/index.html</loc>
+    <loc>https://xuhaoyucn.com/categories/index.html</loc>
     
     <lastmod>2018-09-29T01:36:27.477Z</lastmod>
     
@@ -45,6 +31,13 @@
   
   <url>
     <loc>https://xuhaoyucn.com/links/index.html</loc>
+    
+    <lastmod>2018-09-29T01:36:27.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xuhaoyucn.com/repository/index.html</loc>
     
     <lastmod>2018-09-29T01:36:27.477Z</lastmod>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xuhaoyucn.com/"/>
-  <updated>2018-09-29T03:31:43.132Z</updated>
+  <updated>2018-09-29T06:46:26.080Z</updated>
   <id>https://xuhaoyucn.com/</id>
   
   <author>
@@ -17,47 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://xuhaoyucn.com/2018/09/29/hello-world/"/>
-    <id>https://xuhaoyucn.com/2018/09/29/hello-world/</id>
-    <published>2018-09-29T00:01:38.006Z</published>
-    <updated>2018-09-29T03:31:43.132Z</updated>
+    <title>第一篇</title>
+    <link href="https://xuhaoyucn.com/2018/09/29/%E5%BC%80%E7%AF%87%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
+    <id>https://xuhaoyucn.com/2018/09/29/开篇第一篇/</id>
+    <published>2018-09-29T06:02:31.000Z</published>
+    <updated>2018-09-29T06:46:26.080Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MacDown 的简单使用</title>
-    <link href="https://xuhaoyucn.com/2018/09/25/2018-09-25-xuhaoyu-first-post/"/>
-    <id>https://xuhaoyucn.com/2018/09/25/2018-09-25-xuhaoyu-first-post/</id>
-    <published>2018-09-25T00:11:31.000Z</published>
-    <updated>2018-09-29T03:53:34.962Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>标题使用“#”标识，“#”越多标题级别越小，最多为6个“#”。建议在“#”后面加个空格，这是标准的写法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># H1 </span><br><span class="line">## H2 </span><br><span class="line">### H3 </span><br><span class="line">#### H4 </span><br><span class="line">##### H5 </span><br><span class="line">###### H6</span><br></pre></td></tr></table></figure><h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><!--more--!>左右包围是斜体  如：*斜体* --> 斜体<br><br>左右包围是粗体 如：<strong>粗体</strong> –&gt; 粗体<br><br>## 引用<br><br>在文字前面加个”&gt;”<br><br> 如：<br> &gt;这里是引用<br><br>## 超链接／图片<br><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接为[]()&quot;格式</span><br></pre></td></tr></table></figure><p> 如: <a href="www.baidu.com">百度</a></p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片只是比超链接前面多加了个!``![]()</span><br></pre></td></tr></table></figure><p> 如：</p><p> <img src="http://upload-images.jianshu.io/upload_images/2059483-f6dee2f90f7c0e76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p><h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>前后各使用三个” ` “将其框起来。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nslog(@&quot;代码框&quot;);</span><br></pre></td></tr></table></figure><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>“ * ”或“ - ”在前为无序列表</p><ul><li>Windows</li></ul><ul><li><p>Mac</p></li><li><p>Linux</p></li></ul><p>“ 1. ” “ 2. ”在前为有序列表</p><p>1.第一章</p><p>2.第二章</p><p>3.第三章</p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>用macdown制作表格不是那么方便</p><table><thead><tr><th style="text-align:left">姓名</th><th style="text-align:center">年龄</th><th style="text-align:right">性别</th></tr></thead><tbody><tr><td style="text-align:left">章三</td><td style="text-align:center">23</td><td style="text-align:right">男</td></tr><tr><td style="text-align:left">李四</td><td style="text-align:center">22</td><td style="text-align:right">女</td></tr><tr><td style="text-align:left">王二麻</td><td style="text-align:center">24</td><td style="text-align:right">男</td></tr></tbody></table><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p> <del>删除我吧</del></p>]]></content>
+    <content type="html"><![CDATA[<p>在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。</p><p>然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress 多很多也很好看于是上网找了Hexo博客的搭建方法。 于是我的第一个个人博客就这样出现了，当然期间也花费了很多时间和精力，每天提前三个多小时到公司连续弄了三四天。还好，结果还是让人很满意的！</p><blockquote><p>ps：本人是在公司工作不是那么忙的时候弄的，如果你们公司的事情很多，我建议各位还是有空的时候在弄吧。毕竟有些东西还是要深入的了解一下的。</p></blockquote><p>在写这篇博客的时候有想过把我学习搭建博客的方法分享给大家，但是发现关于 Hexo+Github 搭建博客的方法有很多，所以我也就没有写下来。<br>不过我还是把我参考的方法链接分享给大家吧：</p><blockquote><p>搭建方法：</p><ul><li><a href="https://blog.csdn.net/qq_34290780/article/details/78230706" target="_blank" rel="noopener">https://blog.csdn.net/qq_34290780/article/details/78230706</a></li></ul><p>我用的主题是： - “pure”</p><ul><li><a href="https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md" target="_blank" rel="noopener">https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md</a></li></ul><p>可以根据以上的方法搭建自己的博客主题</p></blockquote><p>现在写个博客感觉好像又回到了高中写作文的时候，本来就偏科文采不是很好，所有就先写到这吧…</p><p>对了，我以后会把我的学习成果和总计、学到的新的技术、封装的框架或控件的思路都写在博客里面，会不定时的更新出来，希望有什么不足的可以指出来，有什么需要指点的也可以联系我，我会尽力帮助你。欢迎各位不吝赐教，共同学习，一起成长！</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;标题使用“#”标识，“#”越多标题级别越小，最多为6个“#”。建议在“#”后面加个空格，这是标准的写法。&lt;/p&gt;
-&lt;figure class
+        &lt;p&gt;在某种机缘巧合之下，接触了个人博客 Octopress，然后就很感兴趣，就想的搭建属于自己的个人博客，以此来激励自己更努力的学习。&lt;/p&gt;
+&lt;p&gt;然后我就查找了好多关于 Octopress 的文章，不过后来看到了 Hexo ，发现 Hexo 的博客主题比 Octopress
       
     
     </summary>
     
-      <category term="MarkDown" scheme="https://xuhaoyucn.com/categories/MarkDown/"/>
+      <category term="个人总结" scheme="https://xuhaoyucn.com/categories/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="MarkDown简单语法" scheme="https://xuhaoyucn.com/tags/MarkDown%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95/"/>
+      <category term="感悟" scheme="https://xuhaoyucn.com/tags/%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
