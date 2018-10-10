@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="之前看了onevcat大神的这篇博客：WWDC 2013 Session笔记 - iOS7中的ViewController切换，很有兴趣，就针对iOS的转场动画进行了学习。其实在之前也遇到过此类的文章，一直以为要花较多的时间研究，所以就搁置了很久。一直等到我准备写一个iOS的框架才突然想到要学习以下，然后把转场动画放入我的框架中，就这样就开始了。 其实关于这方面的文章网络上也已经很多了，作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T11:01:10.669Z">
+<meta property="og:updated_time" content="2018-10-10T22:25:47.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义转场动画">
 <meta name="twitter:description" content="之前看了onevcat大神的这篇博客：WWDC 2013 Session笔记 - iOS7中的ViewController切换，很有兴趣，就针对iOS的转场动画进行了学习。其实在之前也遇到过此类的文章，一直以为要花较多的时间研究，所以就搁置了很久。一直等到我准备写一个iOS的框架才突然想到要学习以下，然后把转场动画放入我的框架中，就这样就开始了。 其实关于这方面的文章网络上也已经很多了，作">
@@ -419,6 +419,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, strong) HYPresentAnimation *presentAnimation;</span><br><span class="line">@property (nonatomic, strong) HYDismissAnimation *dismissAnimation;</span><br><span class="line">@property (nonatomic, strong) HYInteractiveTransition *transitionController;</span><br></pre></td></tr></table></figure>
 <p>最后别忘了实现<strong>transitioningDelegate</strong>，要想Dismiss的时候就可以直接手指下滑就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)btnClicked:(UIButton *)sender &#123;</span><br><span class="line">  HYSecondVC *tempVC = [[HYSecondVC alloc]init];</span><br><span class="line">  tempVC.transitioningDelegate = self;</span><br><span class="line">  [self.transitionController wireToViewController:tempVC];</span><br><span class="line">  [self presentViewController:tempVC animated:YES completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我已经把我的<a href="https://github.com/iMHaoyu/HYAnimatedTransitions" target="_blank" rel="noopener">Demo</a>放在了Github上，有需要的可以看看。</p>
 
       
     </div>
