@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>iOS蓝牙外设的代码实现 | iMHaoyu</title>
+  <meta name="description" content="时隔几个月再次拾起了我的博客（猛然发现我是有博客的人啊….），当然，最近还是挺累的，经过家里之前有些事情，回来后就格外的累，其次就是最近都没有什么可以记录的事情。当然，我没有把博客当作日记来记录，而是当作一个技术类来记录的，所以没有那么勤快。（此处只是借口…还是没有养成写博客的习惯） 废话不多说，最近学习了iOS的蓝牙模块，然后这里就根据我的学习代码来稍微总结一下iOS中心模式的应用场景。（">
+<meta name="keywords" content="iOS蓝牙开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS蓝牙外设的代码实现">
+<meta property="og:url" content="https://xuhaoyucn.com/2018/12/20/蓝牙连接外设的代码实现/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="时隔几个月再次拾起了我的博客（猛然发现我是有博客的人啊….），当然，最近还是挺累的，经过家里之前有些事情，回来后就格外的累，其次就是最近都没有什么可以记录的事情。当然，我没有把博客当作日记来记录，而是当作一个技术类来记录的，所以没有那么勤快。（此处只是借口…还是没有养成写博客的习惯） 废话不多说，最近学习了iOS的蓝牙模块，然后这里就根据我的学习代码来稍微总结一下iOS中心模式的应用场景。（">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-20T02:34:32.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS蓝牙外设的代码实现">
+<meta name="twitter:description" content="时隔几个月再次拾起了我的博客（猛然发现我是有博客的人啊….），当然，最近还是挺累的，经过家里之前有些事情，回来后就格外的累，其次就是最近都没有什么可以记录的事情。当然，我没有把博客当作日记来记录，而是当作一个技术类来记录的，所以没有那么勤快。（此处只是借口…还是没有养成写博客的习惯） 废话不多说，最近学习了iOS的蓝牙模块，然后这里就根据我的学习代码来稍微总结一下iOS中心模式的应用场景。（">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xuhaoyucn.com/2018/12/20/蓝牙连接外设的代码实现/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/iMHaoyu.github.io/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/iMHaoyu" target="_blank">
+          <img class="img-circle img-rotate" src="/iMHaoyu.github.io/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xuhaoyu</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Every day to be a little better !</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> WuXi, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/iMHaoyu.github.io/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/iMHaoyu.github.io/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/iMHaoyu.github.io/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/iMHaoyu.github.io/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/iMHaoyu.github.io/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/iMHaoyu.github.io/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/iMHaoyu.github.io/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/iMHaoyu.github.io/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/iMHaoyu" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/2396345517" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/nicebber" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/iMHaoyu.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/iMHaoyu.github.io/categories/iOS/">iOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/iMHaoyu.github.io/categories/个人总结/">个人总结</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/iMHaoyu.github.io/tags/iOS蓝牙开发/">iOS蓝牙开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/iMHaoyu.github.io/tags/感悟/">感悟</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/iMHaoyu.github.io/tags/模态弹出的转场动画/">模态弹出的转场动画</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/iMHaoyu.github.io/tags/iOS蓝牙开发/" style="font-size: 13px;">iOS蓝牙开发</a> <a href="/iMHaoyu.github.io/tags/感悟/" style="font-size: 13px;">感悟</a> <a href="/iMHaoyu.github.io/tags/模态弹出的转场动画/" style="font-size: 13px;">模态弹出的转场动画</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/iMHaoyu.github.io/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/iMHaoyu.github.io/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/iMHaoyu.github.io/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/iMHaoyu.github.io/categories/iOS/">iOS</a>
+              </p>
+              <p class="item-title">
+                <a href="/iMHaoyu.github.io/2018/12/20/蓝牙连接外设的代码实现/" class="title">iOS蓝牙外设的代码实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-12-20T12:11:58.000Z" itemprop="datePublished">2018-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/iMHaoyu.github.io/categories/iOS/">iOS</a>
+              </p>
+              <p class="item-title">
+                <a href="/iMHaoyu.github.io/2018/10/10/自定义转场动画/" class="title">自定义转场动画</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-10-10T08:11:58.000Z" itemprop="datePublished">2018-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/iMHaoyu.github.io/categories/个人总结/">个人总结</a>
+              </p>
+              <p class="item-title">
+                <a href="/iMHaoyu.github.io/2018/09/29/开篇第一篇/" class="title">第一篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-09-29T06:02:31.000Z" itemprop="datePublished">2018-09-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-蓝牙连接外设的代码实现" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS蓝牙外设的代码实现
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/iMHaoyu.github.io/2018/12/20/蓝牙连接外设的代码实现/" class="article-date">
+	  <time datetime="2018-12-20T12:11:58.000Z" itemprop="datePublished">2018-12-20</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/iMHaoyu.github.io/categories/iOS/">iOS</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/iMHaoyu.github.io/tags/iOS蓝牙开发/">iOS蓝牙开发</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/iMHaoyu.github.io/2018/12/20/蓝牙连接外设的代码实现/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>时隔几个月再次拾起了我的博客（猛然发现我是有博客的人啊….），当然，最近还是挺累的，经过家里之前有些事情，回来后就格外的累，其次就是最近都没有什么可以记录的事情。当然，我没有把博客当作日记来记录，而是当作一个技术类来记录的，所以没有那么勤快。（此处<br>只是借口…还是没有养成写博客的习惯）</p>
+<p>废话不多说，最近学习了iOS的蓝牙模块，然后这里就根据<a href="https://github.com/iMHaoyu/HYBluetoothManager" target="_blank" rel="noopener">我的学习代码</a>来稍微总结一下iOS中心模式的应用场景。（PS:代码只是用来理解流程的，具体的可以看看大神封装的这个蓝牙库<a href="https://github.com/coolnameismy/BabyBluetooth" target="_blank" rel="noopener">BabyBluetooth</a>）中心模式：主设备是手机，用手机扫描连接外设，发现外设服务和属性，操作服务和属性的应用。这里的外设就是蓝牙设备，比如智能手环之类的东西。一般外设会由硬件工程师开发好，并定义好设备提供的服务，每个服务对于的特征，每个特征的属性（只读，只写，通知等等）。</p>
+<p>本文例子的业务场景，就是用一手机app去读写蓝牙设备。</p>
+</blockquote>
+<p>##蓝牙基础知识</p>
+<blockquote>
+<p>CoreBluetooth框架的核心其实是两个东西，peripheral和central, 可以理解成外设和中心。对应他们分别有一组相关的API和类。</p>
+<p>每个设备都会有一些服务，每个服务里面都会有一些特征，特征就是具体键值对，提供数据的地方。每个特征属性分为这么几种：读，写，通知这么几种方式。</p>
+</blockquote>
+<a id="more"></a>
+<p>##连接蓝牙设备的流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">蓝牙开发没有想象中的难，首先在开发的前期我们需要知道蓝牙的整个工作流程，这样更容易理解。</span><br><span class="line">下面我来梳理一下蓝牙的实现流程，记住关键字。</span><br><span class="line"></span><br><span class="line">1. 建立中心角色 (CBCentralManager)</span><br><span class="line">2. 扫描外设（discover =&gt; CBPeripherals）</span><br><span class="line">3. 连接外设(connect)</span><br><span class="line">4. 扫描外设中的服务和特征(discover)</span><br><span class="line">	- 4.1. 获取外设的services(服务)</span><br><span class="line">	- 4.2. 获取外设的Characteristics(特征)</span><br><span class="line">	- 4.3. 获取Characteristics的值(特征值)</span><br><span class="line">	- 4.4. 获取Characteristics的Descriptor(特征的描述符)</span><br><span class="line">	- 4.5. 获取Characteristics的Descriptor的值(特征的描述符值)</span><br><span class="line">5. 与外设做数据交互(explore and interact)</span><br><span class="line">6. 订阅Characteristic的通知</span><br><span class="line">7. 断开连接(disconnect)</span><br></pre></td></tr></table></figure>
+<p>##实现步骤</p>
+<p>###1 导入CoreBluetooth头文件，建立主设备管理类，设置主设备委托</p>
+<p>导入头文件 <figure class="highlight plain"><figcaption><span><corebluetooth corebluetooth.h="">``` 建立系统蓝牙设备管理对象（PS：可以把他理解为主设备，通过他，可以去扫描和链接外设）。我这里把他封装成了另外一个管理类（单例模式），这样可以更系统的看到整个的实现流程，后期有时间可能会封装的更加完整。</corebluetooth></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p> @interface HYBluetooth ()&lt;CBCentralManagerDelegate,CBPeripheralDelegate&gt; {<br>    /*<em> 系统蓝牙设备管理对象，可以把他理解为主设备，通过他，可以去扫描和链接外设 </em>/<br>    CBCentralManager *_centralManager;</p>
+<pre><code>/** 已经连接的外围设备 */
+NSMutableArray&lt;CBPeripheral *&gt; *_connectedPeripherals;
+/** 已经扫描到的外围设备 */
+NSMutableArray&lt;CBPeripheral *&gt; *_discoverPeripherals;
+/** 需要自动重新连接的外围设备 */
+NSMutableArray&lt;CBPeripheral *&gt; *_reconnectPeripherals;
+</code></pre><p>}<br>@end</p>
+<p>@implementation HYBluetooth<br>/*<em> 单例模式 </em>/</p>
+<ul>
+<li>(instancetype)hy_shareBluetooth {<br>  static HYBluetooth *bluetooth = nil;<br>  static dispatch_once_t oneToken;<br>  dispatch_once(&amp;oneToken, ^{<pre><code>bluetooth = [[HYBluetooth alloc]init];
+</code></pre>  });<br>  return bluetooth;<br>}</li>
+</ul>
+<ul>
+<li><p>(instancetype)init {<br>  self = [super init];<br>  if (self) {</p>
+<pre><code>//初始化并设置代理和线程队列，最好一个线程的参数可以为nil，默认会就main线程
+_centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
+_needDiscoverServices = YES;
+
+_connectedPeripherals = [NSMutableArray array];
+_discoverPeripherals = [NSMutableArray array];
+_reconnectPeripherals = [NSMutableArray array];
+</code></pre><p>  }<br>  return self;<br>}</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">接下来，建立了管理类之后就需要实现他的代理方法了，如下：</span><br></pre></td></tr></table></figure>
+<ol>
+<li>必须实现的代理方法<br> //主设备状态改变的委托，在初始化CBCentralManager的适合会打开设备，只有当设备正确打开后才能使用其他选择实现的委托中比较重要的<ul>
+<li>(void)centralManagerDidUpdateState:(CBCentralManager *)central</li>
+</ul>
+</li>
+<li>其他选择实现的委托中比较重要的：<br> //找到外设的委托<ul>
+<li>(void)centralManager:(CBCentralManager <em>)central didDiscoverPeripheral:(CBPeripheral </em>)peripheral advertisementData:(NSDictionary <em>)advertisementData RSSI:(NSNumber </em>)RSSI;<br>//连接外设成功的委托<ul>
+<li>(void)centralManager:(CBCentralManager <em>)central didConnectPeripheral:(CBPeripheral </em>)peripheral;<br>//外设连接失败的委托</li>
+<li>(void)centralManager:(CBCentralManager <em>)central didFailToConnectPeripheral:(CBPeripheral </em>)peripheral error:(NSError *)error;<br>//断开外设的委托</li>
+<li>(void)centralManager:(CBCentralManager <em>)central didDisconnectPeripheral:(CBPeripheral </em>)peripheral error:(NSError *)error;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####1.1 扫描外设（discover）</span><br><span class="line"></span><br><span class="line">方法```- (void)centralManagerDidUpdateState:(CBCentralManager *)central```是必须实现的代理方法，该方法是自动回调用的方法，可以根据```central.state```来判断设备的蓝牙状态。</span><br></pre></td></tr></table></figure>
+<p>/*<em> 设备的蓝牙状态是否打开，是否可用 </em>/</p>
+<ul>
+<li><p>(void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {</p>
+<p>  switch (central.state) {</p>
+<pre><code>case CBManagerStateUnknown:
+    NSLog(@&quot;&gt;&gt;&gt;初始的时候,未知的（刚刚创建的时候是未知的）&quot;);
+    break;
+case CBManagerStateResetting:
+    NSLog(@&quot;&gt;&gt;&gt;正在重置状态&quot;);
+    break;
+case CBManagerStateUnsupported:
+    NSLog(@&quot;&gt;&gt;&gt;设备不支持的状态&quot;);
+    break;
+case CBManagerStateUnauthorized:
+    NSLog(@&quot;&gt;&gt;&gt;程序未授权&quot;);
+    break;
+case CBManagerStatePoweredOff:
+    NSLog(@&quot;&gt;&gt;&gt;设备蓝牙关闭状态&quot;);
+    break;
+case CBManagerStatePoweredOn:
+{
+    NSLog(@&quot;&gt;&gt;&gt;设备蓝牙打开状态&quot;);
+
+    //扫描外设的方法我们放在centralManager成功打开的委托中(该方法)，因为只有设备成功打开，才能开始扫描，否则会报错。
+    //开始扫描周围的外设            /*
+     第一个参数nil就是扫描周围所有的外设，扫描到外设后会进入
+     - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI;
+    */
+    [_centralManager scanForPeripheralsWithServices:nil options:nil];
+
+}
+    break;
+
+default:
+    break;
+</code></pre><p>  }</p>
+<p>  //此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰<br>  if (self.centralManagerDidUpdateStateBlock) {</p>
+<pre><code>self.centralManagerDidUpdateStateBlock(central);
+</code></pre><p>  }<br>}</p>
+</li>
+</ul>
+<p>/*<em> 返回扫描到的蓝牙设备 的委托方法 （一个一个的返回，多次返回） </em>/</p>
+<ul>
+<li><p>(void)centralManager:(CBCentralManager <em>)central didDiscoverPeripheral:(CBPeripheral </em>)peripheral advertisementData:(NSDictionary<nsstring *,id=""> <em>)advertisementData RSSI:(NSNumber </em>)RSSI {</nsstring></p>
+<p>  //把扫描到的设备添加到已扫描到的设备的数组中<br>  //判断是否包含该设备<br>  if (![_discoverPeripherals containsObject:peripheral]) {</p>
+<pre><code>[_discoverPeripherals addObject:peripheral];
+</code></pre><p>  }</p>
+<p>  //此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰<br>  //扫描到设备的回调<br>  if (self.didDiscoverPeripheralBlock) {</p>
+<pre><code>self.didDiscoverPeripheralBlock(peripheral, advertisementData, RSSI);
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####1.2 连接外设</span><br><span class="line"></span><br><span class="line">通过```[_centralManager connectPeripheral:peripheral options:nil];```,连接设备。</span><br><span class="line"></span><br><span class="line">&gt; 一个主设备最多能连7个外设，每个外设最多只能给一个主设备连接,连接成功，失败，断开会进入各自的委托</span><br><span class="line">&gt;</span><br><span class="line">&gt; &gt;//连接外设成功的委托</span><br><span class="line">&gt;</span><br><span class="line">&gt; - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral;</span><br><span class="line">&gt;</span><br><span class="line">&gt; &gt;//外设连接失败的委托</span><br><span class="line">&gt;</span><br><span class="line">&gt; - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error;</span><br><span class="line">&gt;</span><br><span class="line">&gt; &gt;//断开外设的委托</span><br><span class="line">&gt;</span><br><span class="line">&gt; - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error;//断开外设的委托</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/*<em> 连接到Peripheral-成功  </em>/</p>
+<ul>
+<li>(void)centralManager:(CBCentralManager <em>)central didConnectPeripheral:(CBPeripheral </em>)peripheral {</li>
+</ul>
+<pre><code>//设置的peripheral委托CBPeripheralDelegate
+[peripheral setDelegate:self];
+
+//添加已连接设备
+[self addConnectedPeripheral:peripheral];
+
+//此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰
+//已连接设备的回调
+if (self.didConnectedPeripheralBlock) {
+    self.didConnectedPeripheralBlock(central,peripheral);
+}
+
+//是否需要扫描服务
+if (self.needDiscoverServices) {
+    [peripheral discoverServices:nil];
+}
+</code></pre><p>}</p>
+<p>/*<em> 连接到Peripheral-失败 </em>/</p>
+<ul>
+<li><p>(void)centralManager:(CBCentralManager <em>)central didFailToConnectPeripheral:(CBPeripheral </em>)peripheral error:(NSError *)error {</p>
+<p>  //此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰<br>  //连接失败的回调<br>  if (self.failToConnectPeripheralBlock) {</p>
+<pre><code>self.failToConnectPeripheralBlock(central,peripheral,error);
+</code></pre><p>  }<br>}</p>
+</li>
+</ul>
+<p>/*<em> Peripherals断开连接 </em>/</p>
+<ul>
+<li><p>(void)centralManager:(CBCentralManager <em>)central didDisconnectPeripheral:(CBPeripheral </em>)peripheral error:(NSError *)error {</p>
+<p>  if (error) {</p>
+<pre><code>NSLog(@&quot;&gt;&gt;&gt; didDisconnectPeripheral for %@ with error: %@&quot;, peripheral.name, [error localizedDescription]);
+</code></pre><p>  }</p>
+<p>  //从已连接的设备数组中删除该设备<br>  //判断是否包含该设备<br>  if ([_connectedPeripherals containsObject:peripheral]) {</p>
+<pre><code>[_connectedPeripherals removeObject:peripheral];
+</code></pre><p>  }</p>
+<p>  //此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰<br>  //断开连接的回调<br>  if (self.disconnectPeripheralBlock) {</p>
+<pre><code>self.disconnectPeripheralBlock(central,peripheral,error);
+</code></pre><p>  }</p>
+<p>  //检查并重新连接需要重连的设备<br>  if ([_reconnectPeripherals containsObject:peripheral]) {</p>
+<pre><code>[self hy_connectPeripheral:peripheral];
+</code></pre><p>  }<br>}</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###2 扫描外设中的服务和特征(discover)</span><br><span class="line"></span><br><span class="line">到此，设备连接成功后，就可以扫描设备的服务了，同样是通过委托形式，扫描到结果后会进入委托方法。但是这个委托已经不再是主设备的委托（CBCentralManagerDelegate），而是外设的委托（CBPeripheralDelegate）,这个委托包含了主设备与外设交互的许多 回叫方法，包括获取services，获取characteristics，获取characteristics的值，获取characteristics的Descriptor，和Descriptor的值，写数据，读rssi，用通知的方式订阅数据等等。</span><br><span class="line"></span><br><span class="line">####2.1 获取外设的services</span><br><span class="line"></span><br><span class="line">通过```[peripheral discoverServices:nil]```获取设备的服务。</span><br></pre></td></tr></table></figure>
+<p>/*<em> 扫描到服务 </em>/</p>
+<ul>
+<li><p>(void)peripheral:(CBPeripheral <em>)peripheral didDiscoverServices:(NSError </em>)error {<br>  if (error) {</p>
+<pre><code>NSLog(@&quot;&gt;&gt;&gt;didDiscoverServices for %@ with error: %@&quot;, peripheral.name, [error localizedDescription]);
+</code></pre><p>  }</p>
+<p>  //此处是我自己建立的单例类，用Block来实现回调，这样显的流程很清晰<br>  //扫描到服务的回调<br>  if (self.discoverServicesBlock) {</p>
+<pre><code>self.discoverServicesBlock(peripheral,error);
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####2.2 获取外设的Characteristics</span><br><span class="line"></span><br><span class="line">通过```[peripheral discoverCharacteristics:characteristics forService:service]```，扫描每个service的Characteristics。</span><br></pre></td></tr></table></figure></p>
+<p>/*<em> 扫描到服务的特征（Characteristics） </em>/</p>
+<ul>
+<li><p>(void)peripheral:(CBPeripheral <em>)peripheral didDiscoverCharacteristicsForService:(CBService </em>)service error:(NSError *)error {<br>  if (error) {</p>
+<pre><code>NSLog(@&quot;&gt;&gt;&gt;error didDiscoverCharacteristicsForService for %@ with error: %@&quot;, service.UUID, [error localizedDescription]);
+</code></pre><p>  }</p>
+<p>  if (self.discoverCharacteristicsBlock) {</p>
+<pre><code>self.discoverCharacteristicsBlock(peripheral,service,error);
+</code></pre><p>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####2.3 获取Characteristics的值</span><br><span class="line"></span><br><span class="line">通过```[peripheral readValueForCharacteristic:characteristic]```来读取数据不怎么更新的Characteristic的值,或通过```[peripheral setNotifyValue:enabled forCharacteristic:characteristic];```获取经常更新的Characteristic的值。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>/*<em> 获取的charateristic的值 </em>/</p>
+<ul>
+<li>(void)peripheral:(CBPeripheral <em>)peripheral didUpdateValueForCharacteristic:(CBCharacteristic </em>)characteristic error:(NSError *)error {<br>  if (error) {<pre><code>NSLog(@&quot;&gt;&gt;&gt;error didUpdateValueForCharacteristic %@ with error: %@&quot;, characteristic.UUID, [error localizedDescription]);
+</code></pre>  }<br>  //!注意，characteristic.value的类型是NSData，具体开发时，会根据外设协议制定的方式去解析数据<br>  if (self.didUpdateValueForCharacteristicBlock) {<pre><code>self.didUpdateValueForCharacteristicBlock(peripheral, characteristic, error);
+</code></pre>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####2.4 获取Characteristics的Descriptor</span><br><span class="line"></span><br><span class="line">通过```[peripheral discoverDescriptorsForCharacteristic:characteristic];```，扫描每个Characteristics的Descriptor。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>/*<em> 发现Characteristics的Descriptors </em>/</p>
+<ul>
+<li>(void)peripheral:(CBPeripheral <em>)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic </em>)characteristic error:(NSError *)error {<br>  if (error) {<pre><code>NSLog(@&quot;&gt;&gt;&gt;error Discovered DescriptorsForCharacteristic for %@ with error: %@&quot;, characteristic.UUID, [error localizedDescription]);
+</code></pre>  }<br>  if (self.discoverDescriptorsForCharacteristicBlock) {<pre><code>self.discoverDescriptorsForCharacteristicBlock(peripheral, characteristic, error);
+</code></pre>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###3 断开连接</span><br><span class="line"></span><br><span class="line">通过``` [_centralManager cancelPeripheralConnection:peripheral];```，断开连接。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>/*<em> 停止扫描并断开连接 </em>/<br>-(void)disconnectPeripheral:(CBCentralManager <em>)centralManager<br>                 peripheral:(CBPeripheral </em>)peripheral{<br>    //停止扫描<br>    [centralManager stopScan];<br>    //断开连接<br>    [centralManager cancelPeripheralConnection:peripheral];<br>}</p>
+<p><code>`</code></p>
+<p>中心设备的开发是需要配合外设来进行的，一般会有硬件工程师或嵌入式工程师给出通信协议，根据协议来对项目的各种需求进行操作。<br>若想深入的了解蓝牙开发，不下苦功是不行的。</p>
+<p>最后附上我的<a href="https://github.com/iMHaoyu/HYBluetoothManager" target="_blank" rel="noopener">Demo</a>.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xuhaoyucn.com/2018/12/20/蓝牙连接外设的代码实现/" title="iOS蓝牙外设的代码实现" target="_blank" rel="external">https://xuhaoyucn.com/2018/12/20/蓝牙连接外设的代码实现/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/iMHaoyu" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/iMHaoyu.github.io/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/iMHaoyu" target="_blank"><span class="text-dark">xuhaoyu</span><small class="ml-1x">Every day to be a little better !</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MDAyMS8xNjU0OA==">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/iMHaoyu.github.io/2018/10/10/自定义转场动画/" title="自定义转场动画"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/iMHaoyu.github.io/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/iMHaoyu.github.io/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/iMHaoyu" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/2396345517" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/nicebber" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/iMHaoyu.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+    <link href="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script>
+        //利用 FancyBox 实现点击图片放大
+        $(document).ready(function() {
+            $('article img').not('[hidden]').not('.panel-body img').each(function () {
+                var $image = $(this);
+                var imageCaption = $image.attr('alt');
+                var $imageWrapLink = $image.parent('a');
+                if ($imageWrapLink.length < 1) {
+                var src = this.getAttribute('src');
+                var idx = src.lastIndexOf('?');
+                if (idx != -1) {
+                    src = src.substring(0, idx);
+                }
+                $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+                }
+                $imageWrapLink.attr('data-fancybox', 'images');
+                if (imageCaption) {
+                $imageWrapLink.attr('data-caption', imageCaption);
+                }
+            });
+            $().fancybox({
+                selector: '[data-fancybox="images"]',
+                hash: false,
+                loop: false,
+            }); 
+        });
+    </script>
+    
+<script src="/iMHaoyu.github.io/js/plugin.min.js"></script>
+<script src="/iMHaoyu.github.io/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/iMHaoyu.github.io/',
+        CONTENT_URL: '/iMHaoyu.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/iMHaoyu.github.io/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+    
+    
+
+
+
+</body>
+</html>
